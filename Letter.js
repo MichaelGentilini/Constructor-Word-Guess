@@ -4,15 +4,15 @@
    this.isGuessed = false;
 
    // ? this function takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
-   this.guessLetter = function (letterGuess) {
-     this.guess = letterGuess;
+   this.guessLetter = function (guess) {
+     this.guess = guess;
      if (this.guess === this.letter) {
-       console.log('\t\tthe guess is: \t' + this.guess);
-       console.log('\t\tyou guessed correctly\n');
+       //  console.log('\t\tthe guess is: \t' + this.guess);
+       console.log('\t\tyou are correct');
        this.isGuessed = true;
      } else {
-       console.log('\t\tthe guess is: \t' + this.guess);
-       console.log('\t\tyou are incorrect\n');
+       //  console.log('\t\tthe guess is: \t' + this.guess);
+       console.log('\t\tyou are incorrect');
        this.isGuessed = false;
      }
      this.showLetter();
@@ -29,6 +29,7 @@
  }
 
  var letterB = new Letter('b');
-
  letterB.guessLetter('g');
- letterB.guessLetter('b');
+ //  letterB.guessLetter('b');
+
+ module.exports = Letter;
