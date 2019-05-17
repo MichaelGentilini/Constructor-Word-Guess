@@ -3,53 +3,49 @@
    this.letter = letter;
    this.isGuessed = false;
 
-
-   //  ? going to use this to make the space a * or other character to help identify
-   //
-
    // ? this function takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
+
+   //  ! with this function the beginning letters word will be shown without letters
+
    this.guessLetter = function (guess) {
      this.guess = guess;
-     //  console.log('\t\tthe guess is: \t"' + this.guess + '"\n');
 
      if (this.guess === this.letter) {
-       //  console.log('\t\tyou are correct\n');
        this.isGuessed = true;
-       //  return this.isGuessed;
-     } else {
-       //  console.log('\t\tyou are incorrect\n');
+       return this.letter;
 
+     } else if (this.letter === ' ') {
+       return ' ';
+
+     } else {
        this.isGuessed = false;
+       return '_';
      }
-     this.showLetter();
    };
 
    // ? this function returns the character if the letter has been guessed, or an underscore if the letter has not been guessed
-   this.showLetter = function () {
+   this.showLetter = function (guess) {
+     this.guess = guess;
 
-     if (this.isGuessed === true) {
-       console.log("\t\t\t", this.letter, "\n");
-       return this.isGuessed;
-       //  this.letter = this.letter;
-       //  return this.letter;
-       //  } else if (this.letter === ' ') {
-       //    console.log(' ');
+     if (this.guess === this.letter) {
+       this.isGuessed = true;
+       return this.letter;
+
+     } else if (this.letter === ' ') {
+       return ' ';
+
      } else {
-       console.log('\t\t\t_\n');
-       //  this.letter = '-';
-       //  return this.letter;
+       this.isGuessed = false;
+       return '_';
      }
-   };
+   }
  }
 
  var letterB = new Letter('b');
 
- //  console.log("The letter is " + letterB.letter);
+ letterB.guessLetter('c');
+ letterB.showLetter('a');
 
- //  letterB.guessLetter('g');
- //  letterB.showLetter('a');
- //  letterB.guessLetter('b');
- //  letterB.guessLetter('c');
 
 
  module.exports = Letter;
