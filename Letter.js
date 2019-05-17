@@ -1,6 +1,6 @@
  // * letter Constructor
  var Letter = function (letter) {
-   this.letter = letter;
+   this.letter = letter.toLowerCase();
    this.isGuessed = false;
 
    // ? this function takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
@@ -41,10 +41,10 @@
    }
  }
 
- var letterB = new Letter('b');
+ //  var letterB = new Letter('b');
 
- letterB.guessLetter('c');
- letterB.showLetter('a');
+ //  letterB.guessLetter('c');
+ //  letterB.showLetter('a');
 
 
 
