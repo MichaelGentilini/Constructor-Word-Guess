@@ -1,5 +1,7 @@
+// ? Internal Module
 var Letter = require("./Letter");
 
+// ? Constructor Function
 var Word = function (word) {
   this.word = word.split("");
   this.letterArray = [];
@@ -10,7 +12,7 @@ var Word = function (word) {
   }
 };
 
-// ? A function that returns a string representing the word. This should call the function on each letter object (the first function defined in Letter.js) that displays the character or an underscore and concatenate those together.
+// ? this function returns a string representing the word and displays each letter as an underscore to start the game.
 Word.prototype.toString = function (guess) {
   this.guess = guess;
   for (var j = 0; j < this.word.length; j++) {
@@ -19,27 +21,17 @@ Word.prototype.toString = function (guess) {
     }
     this.newWord.push(this.letterArray[j].guessLetter(guess));
   }
-  console.log("\t\t" + this.newWord.join(" ").toString());
+  console.log("\t\t" + this.newWord.join(" ").toString() + "\n");
 };
 
-// ? A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
+// ? This function takes a character (guess) as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
 Word.prototype.wordGuess = function (guess) {
   for (var k = 0; k < this.word.length; k++) {
     if ((this.letterArray[k].showLetter(guess) !== '_') && (this.letterArray[k].showLetter(guess) !== ' ')) {
       this.newWord.splice(k, 1, guess)
     }
   };
-
-  // if (this.newWord.join(" ").toString() == this.word.join(" ").toString()) {
-  //   console.log('\t\t\t\t 🌠 Awesome Job!');
-  //   console.log('\tThe answer is: ' + this.newWord.join(" ").toString())
-  // } else {
-  //   console.log('\tSo far you have: ' + this.newWord.join(" ").toString())
-  // }
-  // return this.newWord;
-
 };
 
-
-
+// ! Export
 module.exports = Word;
