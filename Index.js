@@ -8,7 +8,7 @@ var Word = require("./Words");
 var answers = [
   "meatloaf",
   "buffalo wings",
-  "chil dog",
+  "chili dog",
   "chicken fried steak",
   "peanut butter and jelly",
   "macaroni and cheese",
@@ -71,6 +71,7 @@ function question() {
         if (answer.word.join("") === answer.newWord.join("") && guessCount > 0) {
           console.log("\tGreat Job!  🍴  Are you getting hungry?  🍴");
           console.log("\n\t🎯\tgive this one a shot!\t🎯\n");
+          usedGuess = []
           answerCount++;
           guessCount = 15;
           question();
@@ -86,6 +87,7 @@ function question() {
       } else {
         console.log("<----- the word was '" + answer.word.join("") + "' ----->");
         console.log("\n\t🎯\tgive this one a shot!\t🎯\n");
+        usedGuess = []
         answerCount++;
         guessCount = 15;
         question();
