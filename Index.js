@@ -6,19 +6,26 @@ var Word = require("./Words");
 
 // ? Array and Local Variables for Game
 var answers = [
-  "rattlesnake stew",
   "meatloaf",
+  "buffalo wings",
+  "chil dog",
+  "chicken fried steak",
+  "peanut butter and jelly",
   "macaroni and cheese",
+  "gumbo",
+  "philly cheesesteak",
   "scrapple",
   "rocky mountain oysters",
   "muffuletta",
   "Turducken",
   "movie theater popcorn",
   "new England clam chowder",
+  "rattlesnake stew",
   "thanksgiving turkey",
   "burgoo",
   "fried alligator",
-  "lobster roll"
+  "lobster roll",
+  "smores"
 ];
 
 var answerCount = 0,
@@ -51,17 +58,19 @@ function question() {
         }
       }])
       .then(function (input) {
-        if (usedGuess.indexOf(input.guess) >= 0) {
-          usedGuessCount++;
+        if (usedGuess.indexOf(input.guess) < 0) {
+          guessCount--;
+          usedGuess.push(input.guess);
+        } else if (usedGuess.indexOf(input.guess) >= 0) {
+          console.log("\n\t\t💩  You've already used '" + input.guess + "'  💩\n");
         }
-        guessCount--;
         console.log("\n\t" + guessCount + " guessess remaining!\n");
         answer.wordGuess(input.guess);
         console.log("\t\t" + answer.newWord.join(" ").toString() + "\n");
 
-        if (answer.word.join("") === answer.newWord.join("")) {
-          console.log("\tYUMMO!!  🍴  Doesn't that make you hungry?");
-          console.log("\n\t🎯\tgive this one a shot!\t🎯");
+        if (answer.word.join("") === answer.newWord.join("") && guessCount > 0) {
+          console.log("\tGreat Job!  🍴  Are you getting hungry?  🍴");
+          console.log("\n\t🎯\tgive this one a shot!\t🎯\n");
           answerCount++;
           guessCount = 15;
           question();
@@ -75,7 +84,8 @@ function question() {
       if (guessCount > 0) {
         guessWord();
       } else {
-        console.log("<----- the word was '" + answer.word.join("") + " ----->\n");
+        console.log("<----- the word was '" + answer.word.join("") + "' ----->");
+        console.log("\n\t🎯\tgive this one a shot!\t🎯\n");
         answerCount++;
         guessCount = 15;
         question();
