@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dallasappraiser/Constructor-Word-Guess.git"
+    "url": "git+https://github.com/michaelgentilini/Constructor-Word-Guess.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dallasappraiser/Constructor-Word-Guess/issues"
+    "url": "https://github.com/michaelgentilini/Constructor-Word-Guess/issues"
   },
-  "homepage": "https://github.com/dallasappraiser/Constructor-Word-Guess#readme"
+  "homepage": "https://github.com/michaelgentilini/Constructor-Word-Guess#readme"
 }

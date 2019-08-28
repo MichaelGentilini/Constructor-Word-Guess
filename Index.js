@@ -58,12 +58,17 @@ function question() {
         }
       }])
       .then(function (input) {
-        if (usedGuess.indexOf(input.guess) < 0) {
+        // console.log(answer.word);
+        console.log("guesss here: " + input.guess);
+        console.log(answer.word.indexOf(input.guess));
+        if ((usedGuess.indexOf(input.guess) < 0) && (answer.word.indexOf(input.guess) < 0)) {
           guessCount--;
           usedGuess.push(input.guess);
-        } else if (usedGuess.indexOf(input.guess) >= 0) {
+        }
+        if (usedGuess.indexOf(input.guess) >= 0) {
           console.log("\n\t\t💩  You've already used '" + input.guess + "'  💩\n");
         }
+
         console.log("\n\t" + guessCount + " guessess remaining!\n");
         answer.wordGuess(input.guess);
         console.log("\t\t" + answer.newWord.join(" ").toString() + "\n");
